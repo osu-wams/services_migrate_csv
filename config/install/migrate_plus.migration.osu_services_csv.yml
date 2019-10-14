@@ -1,0 +1,55 @@
+id: osu_services_csv
+label: Migrate OSU Services URL's from a CSV
+migration_tags:
+  - services
+migration_group: osu
+dependencies:
+  enforced:
+    module:
+      - osu_services_csv_migrate
+source:
+  plugin: 'csv'
+  path: modules/custom/osu_services_csv_migrate/resources_master_list.csv
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  ids:
+    - resource_name
+    - page_name
+  fields:
+    0:
+      name: page_name
+      label: 'Page Name'
+    1:
+      name: box_name
+      label: 'Box Name'
+    2:
+      name: resource_name
+      label: 'Resource Name'
+    3:
+      name: original_url
+      label: 'Original URL'
+    4:
+      name: resource_url
+      label: 'Resource URL'
+process:
+  title: resource_name
+  field_service_url/uri: resource_url
+  field_audience:
+    - plugin: explode
+      source: page_name
+      delimiter: '|'
+    - plugin: entity_lookup
+      access_check: false
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  type:
+    plugin: default_value
+    default_value: services
+destination:
+  plugin: entity:node
+  default_bundle: services
+migration_dependencies:
+  requires: {}
+  optional: {}

@@ -1,0 +1,12 @@
+{
+  "name": "drupal/osu_services_csv_migrate",
+  "type": "drupal-custom-module",
+  "description": "Migration for OSU Services",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/core": "^8.7",
+    "drupal/migrate_plus": "^4"
+  }
+}

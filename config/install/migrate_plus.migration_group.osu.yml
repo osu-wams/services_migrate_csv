@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - osu_services_csv_migrate
+id: osu
+label: OSU
+description: 'Migration Group for OSU Migrations'
+source_type: 'CSV'
+module: null
+shared_configuration: null

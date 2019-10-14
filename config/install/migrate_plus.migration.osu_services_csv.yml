@@ -9,7 +9,7 @@ dependencies:
       - services_migrate_csv
 source:
   plugin: 'csv'
-  path: modules/custom/osu_services_csv_migrate/resources_master_list.csv
+  path: public://csv_source/resources_master_list.csv
   delimiter: ','
   enclosure: '"'
   header_row_count: 1

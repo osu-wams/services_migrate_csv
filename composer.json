@@ -1,5 +1,5 @@
 {
-  "name": "drupal/osu_services_csv_migrate",
+  "name": "osu-wams/services_migrate_csv",
   "type": "drupal-custom-module",
   "description": "Migration for OSU Services",
   "keywords": ["Drupal"],

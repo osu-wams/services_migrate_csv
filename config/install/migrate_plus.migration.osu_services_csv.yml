@@ -6,7 +6,7 @@ migration_group: osu
 dependencies:
   enforced:
     module:
-      - osu_services_csv_migrate
+      - services_migrate_csv
 source:
   plugin: 'csv'
   path: modules/custom/osu_services_csv_migrate/resources_master_list.csv

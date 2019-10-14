@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - osu_services_csv_migrate
+      - services_migrate_csv
 id: osu
 label: OSU
 description: 'Migration Group for OSU Migrations'

@@ -32,6 +32,18 @@ source:
     4:
       name: resource_url
       label: 'Resource URL'
+    5:
+      name: is_dup
+      label: 'Is a duplicate'
+    6:
+      name: questionable
+      label: 'Questionable'
+    7:
+      name: resource_icon
+      label: 'Resource Label'
+    8:
+      name: resource_synonyms
+      label: 'Resource Synonyms'
 process:
   title: resource_name
   field_service_url/uri: resource_url
@@ -41,6 +53,14 @@ process:
       delimiter: '|'
     - plugin: entity_lookup
       access_check: false
+  field_icon:
+    plugin: entity_lookup
+    source: resource_icon
+    access_check: false
+  field_service_synonyms:
+    plugin: explode
+    source: resource_synonyms
+    delimiter: '|'
   moderation_state:
     plugin: default_value
     default_value: published

@@ -44,6 +44,12 @@ source:
     8:
       name: resource_synonyms
       label: 'Resource Synonyms'
+    9:
+      name: resourece_audience
+      label: 'Resource Audience'
+    10:
+      name: resource_category
+      label: 'Resource Category'
 process:
   title: resource_name
   field_service_url/uri: resource_url
@@ -61,6 +67,12 @@ process:
     plugin: explode
     source: resource_synonyms
     delimiter: '|'
+  field_service_category:
+    - plugin: explode
+      source: resource_category
+      delimiter: '|'
+    - plugin: entity_lookup
+      access_check: false
   moderation_state:
     plugin: default_value
     default_value: published

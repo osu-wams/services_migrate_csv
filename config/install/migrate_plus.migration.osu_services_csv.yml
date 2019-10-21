@@ -73,6 +73,9 @@ process:
       delimiter: '|'
     - plugin: entity_lookup
       access_check: false
+  uid:
+    plugin: default_value
+    default_value: 2
   moderation_state:
     plugin: default_value
     default_value: published

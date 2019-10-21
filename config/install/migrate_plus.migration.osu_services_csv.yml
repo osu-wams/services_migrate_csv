@@ -53,12 +53,12 @@ source:
 process:
   title: resource_name
   field_service_url/uri: resource_url
-  field_audience:
-    - plugin: explode
-      source: page_name
-      delimiter: '|'
-    - plugin: entity_lookup
-      access_check: false
+#  field_audience:
+#    - plugin: explode
+#      source: page_name
+#      delimiter: '|'
+#    - plugin: entity_lookup
+#      access_check: false
   field_icon:
     plugin: entity_lookup
     source: resource_icon

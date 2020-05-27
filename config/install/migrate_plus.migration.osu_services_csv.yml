@@ -15,7 +15,6 @@ source:
   header_row_count: 1
   ids:
     - service_name
-    - category
     - affiliation
   fields:
     0:

@@ -3,6 +3,7 @@ type: module
 description: Migration of the different services links that OSU has into drupal
 package: Migration
 core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - drupal:migrate
   - migrate_plus:migrate_plus

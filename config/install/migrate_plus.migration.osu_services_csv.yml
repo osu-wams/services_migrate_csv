@@ -14,65 +14,67 @@ source:
   enclosure: '"'
   header_row_count: 1
   ids:
-    - resource_name
-    - page_name
+    - service_name
+    - category
+    - affiliation
   fields:
     0:
-      name: page_name
-      label: 'Page Name'
+      name: service_name
+      label: 'Service Name'
     1:
-      name: box_name
-      label: 'Box Name'
+      name: affiliation
+      label: 'Affiliation'
     2:
-      name: resource_name
-      label: 'Resource Name'
+      name: locations
+      label: 'Locations'
     3:
-      name: original_url
-      label: 'Original URL'
+      name: audience
+      label: 'Audience'
     4:
-      name: resource_url
-      label: 'Resource URL'
+      name: category
+      label: 'Category'
     5:
-      name: is_dup
-      label: 'Is a duplicate'
+      name: description
+      label: 'Description'
     6:
-      name: questionable
-      label: 'Questionable'
+      name: icon_name
+      label: 'Icon Name'
     7:
-      name: resource_icon
+      name: service_url
       label: 'Resource Label'
     8:
       name: resource_synonyms
       label: 'Resource Synonyms'
-    9:
-      name: resourece_audience
-      label: 'Resource Audience'
-    10:
-      name: resource_category
-      label: 'Resource Category'
 process:
-  title: resource_name
-  field_service_url/uri: resource_url
-#  field_audience:
-#    - plugin: explode
-#      source: page_name
-#      delimiter: '|'
-#    - plugin: entity_lookup
-#      access_check: false
-  field_icon:
-    plugin: entity_lookup
-    source: resource_icon
-    access_check: false
-  field_service_synonyms:
-    plugin: explode
-    source: resource_synonyms
-    delimiter: '|'
+  title: service_name
+  field_affiliation:
+    - plugin: entity_lookup
+      source: affiliation
+      access_check: false
+  field_locations:
+    - plugin: explode
+      source: locations
+      delimiter: '|'
+    - plugin: entity_lookup
+      access_check: false
+  field_audience:
+    - plugin: explode
+      source: audience
+      delimiter: '|'
+    - plugin: entity_lookup
+      access_check: false
   field_service_category:
     - plugin: explode
       source: resource_category
       delimiter: '|'
     - plugin: entity_lookup
       access_check: false
+  field_icon_name: field_icon_name
+  field_service_url/uri: service_url
+  field_service_synonyms:
+    plugin: explode
+    source: resource_synonyms
+    delimiter: '|'
   uid:
     plugin: default_value
     default_value: 2

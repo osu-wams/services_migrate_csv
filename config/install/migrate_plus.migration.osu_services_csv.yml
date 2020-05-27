@@ -15,7 +15,6 @@ source:
   header_row_count: 1
   ids:
     - service_name
-    - affiliation
   fields:
     0:
       name: service_name
@@ -47,30 +46,22 @@ source:
 process:
   title: service_name
   field_affiliation:
-    - plugin: default_value
-      default_value: ''
     - plugin: entity_lookup
       source: affiliation
       access_check: false
   field_locations:
-    - plugin: default_value
-      default_value: ''
     - plugin: explode
       source: locations
       delimiter: '|'
     - plugin: entity_lookup
       access_check: false
   field_audience:
-    - plugin: default_value
-      default_value: ''
     - plugin: explode
       source: audience
       delimiter: '|'
     - plugin: entity_lookup
       access_check: false
   field_service_category:
-    - plugin: default_value
-      default_value: ''
     - plugin: explode
       source: resource_category
       delimiter: '|'

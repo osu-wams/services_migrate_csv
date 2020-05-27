@@ -88,5 +88,5 @@ destination:
   plugin: entity:node
   default_bundle: services
 migration_dependencies:
-  requires: {}
+  required: {}
   optional: {}

@@ -39,7 +39,7 @@ source:
       label: 'Icon Name'
     7:
       name: service_url
-      label: 'Resource Label'
+      label: 'Service URL'
     8:
       name: resource_synonyms
       label: 'Resource Synonyms'

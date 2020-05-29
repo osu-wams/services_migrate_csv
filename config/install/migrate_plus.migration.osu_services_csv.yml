@@ -55,10 +55,10 @@ process:
     - plugin: entity_generate
   field_service_category:
     - plugin: explode
-      source: resource_category
+      source: category
       delimiter: '|'
     - plugin: entity_generate
-  field_icon_name: field_icon_name
+  field_icon_name: icon_name
   field_service_url/uri: service_url
   field_service_synonyms:
     plugin: explode

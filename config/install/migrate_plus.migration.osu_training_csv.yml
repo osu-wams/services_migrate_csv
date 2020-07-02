@@ -1,4 +1,4 @@
-id: osu_trainings_csv
+id: osu_training_csv
 label: Migrate OSU Trainings data from a CSV
 migration_tags:
   - training

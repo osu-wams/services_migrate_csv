@@ -1,0 +1,105 @@
+id: osu_trainings_csv
+label: Migrate OSU Trainings data from a CSV
+migration_tags:
+  - training
+migration_group: osu
+dependencies:
+  enforced:
+    module:
+      - services_migrate_csv
+source:
+  plugin: 'csv'
+  path: public://csv_source/training_inventory.csv
+  delimiter: ','
+  enclosure: '"'
+  header_row_count: 1
+  ids:
+    - course_name
+    - department
+  fields:
+    0:
+      name: course_name
+      label: 'Course Name'
+    1:
+      name: department
+      label: 'Department Author'
+    2:
+      name: frequency
+      label: 'Frequency'
+    3:
+      name: duration
+      label: 'Duration'
+    4:
+      name: cost
+      label: 'Cost'
+    5:
+      name: description
+      label: 'Course Description'
+    6:
+      name: prerequisites
+      label: 'Prerequisites'
+    7:
+      name: course_type
+      label: 'Type of Course'
+    8:
+      name: course_design
+      label: 'Course Design'
+    9:
+      name: audience
+      label: 'Audience'
+    10:
+      name: website
+      label: 'Website URL'
+    11:
+      name: contact_email
+      label: 'Contact Email'
+    12:
+      name: tags
+      label: 'Tags'
+    13:
+      name: featured
+      label: 'Featured'
+    14:
+      name: image
+      label: 'Image'
+process:
+  title: course_name
+  field_training_audience:
+    - plugin: explode
+      source: audience
+      delimiter: '|'
+    - plugin: entity_generate
+  field_training_contact: contact_email
+  field_training_cost: cost
+  body: description
+  field_training_department: department
+  field_training_duration: duration
+  field_training_featured:
+    plugin: default_value
+    default_value: 0
+  field_training_frequency: frequency
+  field_training_prerequisites: prerequisites
+  field_training_course_design:
+    plugin: entity_generate
+    source: course_design
+  field_training_tags:
+    - plugin: explode
+      source: tags
+      delimiter: '|'
+    - plugin: entity_generate
+  field_training_types:
+    plugin: entity_generate
+    source: course_type
+  field_training_website/uri: website
+  uid:
+    plugin: default_value
+    default_value: 2
+  type:
+    plugin: default_value
+    default_value: trainings
+destination:
+  plugin: entity:node
+  default_bundle: trainings
+migration_dependencies:
+  required: {  }
+  optional: {  }

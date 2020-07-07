@@ -6,8 +6,8 @@
   "license": "GPL-2.0",
   "minimum-stability": "dev",
   "require": {
-    "drupal/core": "^8.7",
-    "drupal/migrate_plus": "^4",
+    "drupal/core": "^8.7 || ^9",
+    "drupal/migrate_plus": "^4 || ^5",
     "drupal/migrate_source_csv": "^3.0"
   }
 }

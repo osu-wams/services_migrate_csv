@@ -21,47 +21,53 @@ source:
       name: course_name
       label: 'Course Name'
     1:
-      name: department
-      label: 'Department Author'
+      name: published
+      label: 'Published'
     2:
-      name: frequency
-      label: 'Frequency'
-    3:
-      name: duration
-      label: 'Duration'
-    4:
-      name: cost
-      label: 'Cost'
-    5:
-      name: description
-      label: 'Course Description'
-    6:
-      name: prerequisites
-      label: 'Prerequisites'
-    7:
-      name: course_type
-      label: 'Type of Course'
-    8:
-      name: course_design
-      label: 'Course Design'
-    9:
       name: audience
       label: 'Audience'
-    10:
-      name: website
-      label: 'Website URL'
-    11:
-      name: contact_email
-      label: 'Contact Email'
-    12:
-      name: tags
-      label: 'Tags'
-    13:
+    3:
+      name: description
+      label: 'Course Description'
+    4:
+      name: contact
+      label: 'Contact'
+    5:
+      name: cost
+      label: 'Cost'
+    6:
+      name: course_length
+      label: 'Course Length'
+    7:
+      name: course_design
+      label: 'Delivery Method'
+    8:
       name: featured
       label: 'Featured'
+    9:
+      name: prerequisites
+      label: 'Prerequisites'
+    10:
+      name: training_image
+      label: 'Training Image'
+    11:
+      name: department
+      label: 'Offered by'
+    12:
+      name: training_tags
+      label: 'Training Tags'
+    13:
+      name: website
+      label: 'Website URL'
     14:
-      name: image
-      label: 'Image'
+      name: created
+      label: 'Created'
+    15:
+      name: changed
+      label: 'Changed'
+    16:
+      name: author
+      label: 'Author'
 process:
   title: course_name
   field_training_audience:
@@ -69,31 +75,39 @@ process:
       source: audience
       delimiter: '|'
     - plugin: entity_generate
-  field_training_contact: contact_email
+  field_training_contact: contact
   field_training_cost: cost
   body: description
-  field_training_department: department
-  field_training_duration: duration
+  field_training_course_length:
+    source: course_length
+    plugin: entity_lookup
+  field_training_course_design:
+    - plugin: explode
+      source: course_design
+      delimiter: '|'
+    - plugin: entity_generate
   field_training_featured:
     plugin: default_value
     default_value: 0
-  field_training_frequency: frequency
+    source: featured
   field_training_prerequisites: prerequisites
-  field_training_course_design:
-    plugin: entity_generate
-    source: course_design
+  field_training_department: department
   field_training_tags:
     - plugin: explode
-      source: tags
+      source: training_tags
       delimiter: '|'
     - plugin: entity_generate
-  field_training_types:
-    plugin: entity_generate
-    source: course_type
   field_training_website/uri: website
+  status: published
+  created: created
+  changed: changed
   uid:
-    plugin: default_value
-    default_value: 2
+    - plugin: entity_lookup
+      entity_type: user
+      value_key: name
+      source: author
+    - plugin: default_value
+      default_value: 2
   type:
     plugin: default_value
     default_value: trainings

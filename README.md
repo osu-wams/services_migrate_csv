@@ -16,9 +16,10 @@ drush en services_migrate_csv
 ```shell script
 drush  migrate:import osu_services_csv
 ```
-To limit the the amount processed 
+To limit the the amount processed
 ```shell script
 drush migrate:import osu_services_csv --limit=10
 ```
 ### Drupal UI
-To be able to run the migrations from the web interface you will need to enable the module Migrate Drupal UI.
+To be able to run the migrations from the web interface you will need to enable
+the module Migrate Drupal UI.

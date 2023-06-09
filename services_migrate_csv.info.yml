@@ -2,7 +2,7 @@ name: Services Migrate CSV
 type: module
 description: Migration of the different services links that OSU has into drupal
 package: Migration
-version: 1.0.10
+version: 1.1.0
 core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:migrate

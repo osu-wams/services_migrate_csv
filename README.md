@@ -6,7 +6,7 @@ Use composer to add this module to a Drupal site.
 ```shell script
 composer require --dev osu-wams/services_migrate_csv
 ```
-Either using Drush or the UI install the this module and it's dependencies
+Either using Drush or the UI install the module and it's dependencies
 ```shell script
 drush en services_migrate_csv
 ```
@@ -16,7 +16,7 @@ drush en services_migrate_csv
 ```shell script
 drush  migrate:import osu_services_csv
 ```
-To limit the the amount processed
+To limit the amount processed
 ```shell script
 drush migrate:import osu_services_csv --limit=10
 ```

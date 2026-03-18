@@ -1,29 +1,40 @@
 {
     "name": "osu-wams/services_migrate_csv",
-    "type": "drupal-custom-module",
     "description": "Migration for OSU Services",
-    "keywords": ["Drupal"],
+    "type": "drupal-custom-module",
+    "keywords": [
+        "Drupal"
+    ],
     "license": "GPL-2.0-or-later",
     "minimum-stability": "stable",
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        },
-        "sort-packages": true
-    },
-    "require": {
-        "drupal/migrate_plus": "^5 || ^6",
-        "drupal/migrate_source_csv": "^3.0"
-    },
+    "authors": [
+        {
+            "name": "Matthew Brabham",
+            "email": "matthew.brabham@oregonstate.edu"
+        }
+    ],
     "repositories": {
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": false
+        },
+        "sort-packages": true
+    },
+    "require": {
+        "drupal/migrate_plus": "^5 || ^6",
+        "drupal/migrate_source_csv": "^3.8"
+    },
     "require-dev": {
-        "brainmaestro/composer-git-hooks": "^2.8",
-        "drupal/coder": "^8.3",
-        "friendsoftwig/twigcs": "^6.0"
+        "brainmaestro/composer-git-hooks": "^3.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.2",
+        "drupal/coder": "^9.0",
+        "friendsoftwig/twigcs": "^6.6",
+        "squizlabs/php_codesniffer": "^4.0"
     }
 }
